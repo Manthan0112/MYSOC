@@ -1,9 +1,9 @@
 pipeline {
     environment {
-        registry1 = "sarika476/frontend"
-        registry2 = "sarika476/backend"
-        registry = "sarika476/final_project"
-        registryCredential = 'docker-login'
+        registry1 = "manthan0112/frontend"
+        registry2 = "manthan0112/backend"
+        registry = "manthan0112/final_project"
+        registryCredential = 'dockerhub_id'
         dockerImage = ''
     }
     agent any
@@ -65,8 +65,7 @@ pipeline {
         stage('Ansible Deploy') {
             steps {
                
-                sh 'ansible-playbook -i inventory p2.yml'
-
+                ansiblePlaybook colorized: true, disableHostKeyChecking: true, installation: 'Ansible', inventory: 'inventory', playbook: 'p2.yml'
 
             }
         }
