@@ -15,6 +15,16 @@
         owner: manthan0112
         group: manthan0112
         mode: 0777
+        
+    - name: Copying yml
+      become: false
+      copy:
+        src: ./docker-compose.yml
+        dest: ./
+        owner: manthan0112
+        group: manthan0112
+        mode: 0777
+        
     - name: Copying script file
       become: false
       copy:
@@ -23,6 +33,7 @@
         owner: manthan0112
         group: manthan0112
         mode: 0777
+        
     - name: Run Docker compose
       shell: ./scriptfile.sh
         
